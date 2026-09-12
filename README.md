@@ -52,3 +52,22 @@ xneelo. (2025). Web Hosting Solutions. Available at: https://xneelo.co.za/ (Acce
 ZA Central Registry (ZACR). (2025). Domain Name Registration. Available at: https://www.zacr.co.za/ (Accessed: 4 August 2026).
 
 Virgin Active South Africa. (2026). Virgin Active South Africa. Available at: https://www.virginactive.co.za/ (Accessed: 6 August 2026).
+
+## Responsive Design Screenshots
+
+### Desktop View
+![Desktop View](screenshots/desktop-view.png)
+
+### Tablet View
+![Tablet View](screenshots/tablet-view.png)
+
+### Mobile View
+![Mobile View](screenshots/mobile-view.png)
+
+### [Date: 12 September 2026]
+- Created external stylesheet (style.css) and linked it to all 5 HTML pages.
+- Applied base styles including a CSS reset, Aptos font, and the black/white/red colour scheme.
+- Styled header, navigation, main content, and footer sections.
+- Styled the enquiry form on contact.html.
+- Implemented responsive design using media queries for tablet and mobile screens.
+- Added screenshot evidence of desktop, tablet, and mobile views to the README.

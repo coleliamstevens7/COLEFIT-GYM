@@ -1,0 +1,194 @@
+/* CSS Reset: removes default browser spacing for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles: font, colours, and background applied site-wide */
+body {
+    font-family: 'Aptos', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+}
+/* Header section: black background, white text, centered content */
+header {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+header img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+header h2 {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #e60000;
+    margin-top: 5px;
+}
+
+/* Navigation menu: horizontal layout with red hover accents */
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e60000;
+}
+/* Main content: centered layout with readable width and spacing */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #000000;
+    border-bottom: 3px solid #e60000;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+main p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+main ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+main li {
+    margin-bottom: 8px;
+}
+
+/* Footer section: black background, white centered text */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+/* Enquiry form: styled inputs and button matching brand colours */
+form {
+    max-width: 500px;
+    margin-top: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-family: 'Aptos', Arial, sans-serif;
+}
+
+form input[type="submit"] {
+    background-color: #e60000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #b30000;
+}
+/* Responsive Design: Tablet breakpoint */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1rem;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design: Mobile breakpoint */
+@media screen and (max-width: 480px) {
+    header img {
+        max-width: 140px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header h2 {
+        font-size: 0.9rem;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    main h2 {
+        font-size: 1.3rem;
+    }
+
+    main p, main li {
+        font-size: 0.9rem;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+    }
+}
