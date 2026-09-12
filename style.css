@@ -21,9 +21,16 @@ header {
 }
 
 header img {
+        margin: 0 auto;
     max-width: 200px;
     height: auto;
     border-radius: 8px;
+}
+/* Responsive images: all page images resize within their container */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 header h1 {
@@ -54,6 +61,14 @@ nav a {
 
 nav a:hover {
     color: #e60000;
+}
+nav a:focus {
+    color: #e60000;
+    outline: 2px solid #e60000;
+}
+
+nav a:active {
+    color: #b30000;
 }
 /* Main content: centered layout with readable width and spacing */
 main {
@@ -115,7 +130,12 @@ form textarea {
     border-radius: 4px;
     font-family: 'Aptos', Arial, sans-serif;
 }
-
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: #e60000;
+    outline: none;
+}
 form input[type="submit"] {
     background-color: #e60000;
     color: #ffffff;
@@ -130,6 +150,30 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #b30000;
+}
+form input[type="submit"]:focus {
+    outline: 3px solid #000000;
+}
+
+form input[type="submit"]:active {
+    background-color: #800000;
+}
+/* Layout Structure: Flexbox for values and explore lists */
+.values-list,
+.explore-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    margin-left: 0;
+}
+
+.values-list li,
+.explore-list li {
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #e60000;
 }
 /* Responsive Design: Tablet breakpoint */
 @media screen and (max-width: 768px) {
