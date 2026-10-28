@@ -175,14 +175,36 @@ form input[type="submit"]:active {
     border-radius: 6px;
     border-left: 4px solid #e60000;
 }
+/* Responsive Design: Large tablet / small desktop breakpoint */
+@media screen and (max-width: 1024px) {
+    main {
+        max-width: 700px;
+    }
+}
+
 /* Responsive Design: Tablet breakpoint */
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    header img {
+        max-width: 170px;
+    }
+
     header h1 {
         font-size: 2rem;
     }
 
     header h2 {
         font-size: 1rem;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
     }
 
     nav a {
@@ -198,12 +220,25 @@ form input[type="submit"]:active {
     main h2 {
         font-size: 1.5rem;
     }
+
+    main p {
+        font-size: 0.95rem;
+    }
+
+    .values-list,
+    .explore-list {
+        justify-content: center;
+    }
 }
 
 /* Responsive Design: Mobile breakpoint */
 @media screen and (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
     header img {
-        max-width: 140px;
+        max-width: 120px;
     }
 
     header h1 {
@@ -215,21 +250,39 @@ form input[type="submit"]:active {
     }
 
     nav {
-        display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
 
     nav a {
         margin: 5px 0;
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+
+    main {
+        padding: 15px 10px;
     }
 
     main h2 {
         font-size: 1.3rem;
     }
 
-    main p, main li {
+    main p,
+    main li {
         font-size: 0.9rem;
+    }
+
+    .values-list,
+    .explore-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .values-list li,
+    .explore-list li {
+        text-align: center;
     }
 
     form input[type="submit"] {
