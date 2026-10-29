@@ -33,26 +33,30 @@
     <!-- Main content: training programmes, facilities, and fitness support info -->
      <main>
 
-        <h2>Training Programmes</h2>
+        <!-- Accordion: click a heading to show or hide its section -->
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-1">Training Programmes</button>
+        <div class="accordion-panel" id="panel-1">
+            <p>
+                COLEFIT provides training programmes to help individuals work
+                towards their health and fitness goals.
+            </p>
+        </div>
 
-        <p>
-            COLEFIT provides training programmes to help individuals work
-            towards their health and fitness goals.
-        </p>
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-2">Facilities</button>
+        <div class="accordion-panel" id="panel-2">
+            <p>
+                COLEFIT provides quality gym equipment in a welcoming environment
+                for individuals of all fitness levels.
+            </p>
+        </div>
 
-        <h2>Facilities</h2>
-
-        <p>
-            COLEFIT provides quality gym equipment in a welcoming environment
-            for individuals of all fitness levels.
-        </p>
-
-        <h2>Fitness Support</h2>
-
-        <p>
-            COLEFIT supports members throughout their fitness journey and
-            encourages people to stay focused and motivated.
-        </p>
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-3">Fitness Support</button>
+        <div class="accordion-panel" id="panel-3">
+            <p>
+                COLEFIT supports members throughout their fitness journey and
+                encourages people to stay focused and motivated.
+            </p>
+        </div>
 
     </main>
 
@@ -62,6 +66,9 @@
         <p>COLEFIT</p>
 
     </footer>
+
+    <!-- JavaScript file: runs the accordion behaviour -->
+    <script src="script.js"></script>
 
 </body>
 

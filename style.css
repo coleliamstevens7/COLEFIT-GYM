@@ -289,3 +289,55 @@ form input[type="submit"]:active {
         width: 100%;
     }
 }
+
+/* Accordion: expandable sections on the Services page */
+.accordion-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Aptos', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 20px;
+    margin-top: 15px;
+    border: none;
+    border-left: 6px solid #e60000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button::after {
+    content: "+";
+    float: right;
+}
+
+.accordion-button[aria-expanded="true"]::after {
+    content: "-";
+}
+
+.accordion-button:hover {
+    background-color: #e60000;
+}
+
+.accordion-button:focus {
+    outline: 3px solid #e60000;
+    outline-offset: 2px;
+}
+
+.accordion-button:active {
+    background-color: #b30000;
+}
+
+.accordion-panel {
+    display: none;
+    padding: 15px 20px;
+    background-color: #f2f2f2;
+    border-left: 6px solid #e60000;
+}
+
+.accordion-panel.open {
+    display: block;
+}
