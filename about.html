@@ -85,6 +85,24 @@
             <li>Motivation</li>
             <li>Support</li>
         </ul>
+        
+        <h2>Gallery</h2>
+
+        <!-- Gallery: click a picture to open it larger in the lightbox -->
+        <div class="gallery">
+            <img class="gallery-image" tabindex="0" src="images/colefit-members-training-together.webp" alt="Five COLEFIT members training together in the gym">
+            <img class="gallery-image" tabindex="0" src="images/gym-equipment-dumbbells-weights.jpg" alt="Gym equipment including dumbbells and weights at COLEFIT">
+            <img class="gallery-image" tabindex="0" src="images/colefit-reception-desk.jpg" alt="Reception desk with chairs at the entrance of the COLEFIT gym">
+            <img class="gallery-image" tabindex="0" src="images/gym-membership-key-tag.webp" alt="COLEFIT gym membership key tag">
+        </div>
+
+        <!-- Lightbox: full-screen viewer, hidden until a gallery picture is clicked -->
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close picture">&times;</button>
+            <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous picture">&#10094;</button>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <button class="lightbox-next" id="lightbox-next" aria-label="Next picture">&#10095;</button>
+        </div>
 
     </main>
 
@@ -95,6 +113,8 @@
 
     </footer>
 
+<!-- JavaScript file: runs the gallery lightbox -->
+    <script src="script.js"></script>
 </body>
 
 </html>
