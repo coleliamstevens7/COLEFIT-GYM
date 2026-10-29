@@ -198,3 +198,135 @@ if (openStatus) {
         openStatus.classList.add("is-closed");
     }
 }
+
+// Form validation: checks the Contact enquiry form before it is sent
+var enquiryForm = document.getElementById("enquiry-form");
+
+// Only run on the page that has the enquiry form
+if (enquiryForm) {
+    var fields = {
+        name: document.getElementById("name"),
+        email: document.getElementById("email"),
+        phone: document.getElementById("phone"),
+        enquiryType: document.getElementById("enquiry-type"),
+        message: document.getElementById("message"),
+        consent: document.getElementById("consent")
+    };
+
+    var formMessage = document.getElementById("form-message");
+
+    // Shows an error under a field, or clears it when the message is empty.
+    // Returns true when the field is valid.
+    var setError = function (field, errorId, message) {
+        document.getElementById(errorId).textContent = message;
+
+        if (message === "") {
+            field.classList.remove("input-error");
+            field.setAttribute("aria-invalid", "false");
+        } else {
+            field.classList.add("input-error");
+            field.setAttribute("aria-invalid", "true");
+        }
+
+        return message === "";
+    };
+
+    // One validation rule per field, each with a clear error message
+    var validators = {
+        name: function () {
+            var value = fields.name.value.trim();
+            if (value === "") {
+                return setError(fields.name, "name-error", "Please enter your full name.");
+            }
+            if (value.length < 2) {
+                return setError(fields.name, "name-error", "Your name must be at least 2 characters long.");
+            }
+            if (!/^[A-Za-z\u00C0-\u024F' -]+$/.test(value)) {
+                return setError(fields.name, "name-error", "Your name can only contain letters, spaces, hyphens and apostrophes.");
+            }
+            return setError(fields.name, "name-error", "");
+        },
+
+        email: function () {
+            var value = fields.email.value.trim();
+            if (value === "") {
+                return setError(fields.email, "email-error", "Please enter your email address.");
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                return setError(fields.email, "email-error", "Please enter a valid email address, like name@example.com.");
+            }
+            return setError(fields.email, "email-error", "");
+        },
+
+        phone: function () {
+            var value = fields.phone.value.trim();
+            // The phone number is optional, so only check it when something is typed
+            if (value !== "" && !/^\+?[0-9 ]{9,18}$/.test(value)) {
+                return setError(fields.phone, "phone-error", "Please enter a valid phone number using digits only, for example 071 123 4567.");
+            }
+            return setError(fields.phone, "phone-error", "");
+        },
+
+        enquiryType: function () {
+            if (fields.enquiryType.value === "") {
+                return setError(fields.enquiryType, "enquiry-type-error", "Please choose what your enquiry is about.");
+            }
+            return setError(fields.enquiryType, "enquiry-type-error", "");
+        },
+
+        message: function () {
+            var value = fields.message.value.trim();
+            if (value === "") {
+                return setError(fields.message, "message-error", "Please type your message.");
+            }
+            if (value.length < 10) {
+                return setError(fields.message, "message-error", "Your message must be at least 10 characters long.");
+            }
+            return setError(fields.message, "message-error", "");
+        },
+
+        consent: function () {
+            if (!fields.consent.checked) {
+                return setError(fields.consent, "consent-error", "Please tick the box so we can contact you about your enquiry.");
+            }
+            return setError(fields.consent, "consent-error", "");
+        }
+    };
+
+    // Immediate feedback: check each field when the visitor leaves it,
+    // and keep re-checking while they fix a field that has an error
+    Object.keys(validators).forEach(function (key) {
+        var field = fields[key];
+        var leaveEvent = (key === "enquiryType" || key === "consent") ? "change" : "blur";
+
+        field.addEventListener(leaveEvent, validators[key]);
+        field.addEventListener("input", function () {
+            if (field.classList.contains("input-error")) {
+                validators[key]();
+            }
+        });
+    });
+
+    // When the form is submitted, check every field and stop the send if any are invalid
+    enquiryForm.addEventListener("submit", function (event) {
+        var allValid = true;
+        var firstInvalidField = null;
+
+        Object.keys(validators).forEach(function (key) {
+            if (!validators[key]()) {
+                allValid = false;
+                if (firstInvalidField === null) {
+                    firstInvalidField = fields[key];
+                }
+            }
+        });
+
+        if (!allValid) {
+            event.preventDefault();
+            formMessage.textContent = "Please fix the errors above and try again.";
+            firstInvalidField.focus();
+        } else {
+            formMessage.textContent = "";
+        }
+    });
+}

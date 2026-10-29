@@ -541,3 +541,67 @@ main label[for="search-input"] {
 .open-status.is-closed {
     border-left-color: #e60000;
 }
+
+/* Form controls: phone, dropdown and checkbox styling */
+form input[type="tel"],
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-family: 'Aptos', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+form input[type="tel"]:hover,
+form select:hover,
+form input[type="text"]:hover,
+form input[type="email"]:hover,
+form textarea:hover {
+    border-color: #e60000;
+}
+
+form input[type="tel"]:focus,
+form select:focus {
+    border-color: #e60000;
+    outline: none;
+}
+
+.consent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.consent label {
+    display: inline;
+    margin: 0;
+}
+
+.consent input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #e60000;
+}
+
+/* Form validation: error messages and highlighted fields */
+.error-message {
+    display: block;
+    min-height: 1.2rem;
+    margin-top: 4px;
+    color: #e60000;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+form .input-error {
+    border-color: #e60000;
+    background-color: #fff0f0;
+}
+
+.form-message {
+    margin-top: 15px;
+    color: #e60000;
+    font-weight: bold;
+}
