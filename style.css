@@ -491,3 +491,53 @@ form input[type="submit"]:active {
 .lightbox-next:active {
     background-color: #800000;
 }
+
+/* Search feature: search box on the Services page */
+main label[for="search-input"] {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#search-input {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-family: 'Aptos', Arial, sans-serif;
+}
+
+#search-input:hover {
+    border-color: #e60000;
+}
+
+#search-input:focus {
+    border-color: #e60000;
+    outline: none;
+}
+
+.search-message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #e60000;
+}
+
+/* Dynamic content: open or closed message on the Contact page */
+.open-status {
+    padding: 10px 15px;
+    background-color: #f2f2f2;
+    border-left: 6px solid #000000;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.open-status.is-open {
+    border-left-color: #2e9e4f;
+}
+
+.open-status.is-closed {
+    border-left-color: #e60000;
+}

@@ -97,3 +97,104 @@ if (galleryImages.length > 0 && lightbox) {
         }
     });
 }
+
+// Search feature: filters the Services sections as the visitor types
+var searchInput = document.getElementById("search-input");
+
+// Only run on pages that have a search box
+if (searchInput) {
+    var searchMessage = document.getElementById("search-message");
+    var searchButtons = document.querySelectorAll(".accordion-button");
+
+    searchInput.addEventListener("input", function () {
+        var term = searchInput.value.trim().toLowerCase();
+        var matches = 0;
+
+        searchButtons.forEach(function (button) {
+            var panel = button.nextElementSibling;
+            var text = (button.textContent + " " + panel.textContent).toLowerCase();
+            var isMatch = term === "" || text.indexOf(term) !== -1;
+
+            // Hide sections that do not match the search word
+            button.style.display = isMatch ? "" : "none";
+
+            // Open the matching sections so the result is visible straight away
+            if (term !== "" && isMatch) {
+                panel.classList.add("open");
+                button.setAttribute("aria-expanded", "true");
+            } else {
+                panel.classList.remove("open");
+                button.setAttribute("aria-expanded", "false");
+            }
+
+            if (isMatch) {
+                matches++;
+            }
+        });
+
+        // Tell the visitor how many results were found
+        if (term === "") {
+            searchMessage.textContent = "";
+        } else if (matches === 0) {
+            searchMessage.textContent = "No results found for \"" + searchInput.value.trim() + "\".";
+        } else {
+            searchMessage.textContent = matches + " result(s) found.";
+        }
+    });
+}
+
+// Dynamic content: shows whether COLEFIT is open right now, using South African time
+var openStatus = document.getElementById("open-status");
+
+// Only run on pages that have the open status message
+if (openStatus) {
+    // Opening and closing hour for each day, matching the Operating Hours list
+    var openingHours = {
+        Mon: [6, 20],
+        Tue: [6, 20],
+        Wed: [6, 20],
+        Thu: [6, 20],
+        Fri: [6, 20],
+        Sat: [7, 17],
+        Sun: [8, 14]
+    };
+
+    // Get the current day and time in Johannesburg
+    var timeParts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Africa/Johannesburg",
+        weekday: "short",
+        hour: "numeric",
+        minute: "numeric",
+        hourCycle: "h23"
+    }).formatToParts(new Date());
+
+    var currentDay = "";
+    var currentHour = 0;
+    var currentMinute = 0;
+
+    timeParts.forEach(function (part) {
+        if (part.type === "weekday") {
+            currentDay = part.value;
+        }
+        if (part.type === "hour") {
+            currentHour = parseInt(part.value, 10);
+        }
+        if (part.type === "minute") {
+            currentMinute = parseInt(part.value, 10);
+        }
+    });
+
+    var todaysHours = openingHours[currentDay];
+    var minutesNow = currentHour * 60 + currentMinute;
+    var isOpen = minutesNow >= todaysHours[0] * 60 && minutesNow < todaysHours[1] * 60;
+
+    var hoursText = (todaysHours[0] < 10 ? "0" : "") + todaysHours[0] + ":00 - " + todaysHours[1] + ":00";
+
+    if (isOpen) {
+        openStatus.textContent = "We are open right now. Today's hours: " + hoursText + ".";
+        openStatus.classList.add("is-open");
+    } else {
+        openStatus.textContent = "We are closed right now. Today's hours: " + hoursText + ".";
+        openStatus.classList.add("is-closed");
+    }
+}
