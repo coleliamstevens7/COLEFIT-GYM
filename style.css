@@ -341,3 +341,49 @@ form input[type="submit"]:active {
 .accordion-panel.open {
     display: block;
 }
+
+/* Interactive map: responsive map embed on the Contact page */
+.map-container {
+    margin-top: 15px;
+    border: 3px solid #000000;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+/* Smaller map height on mobile screens */
+@media screen and (max-width: 480px) {
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+/* Map link: styled link below the map */
+.map-link {
+    margin-top: 10px;
+}
+
+.map-link a {
+    color: #e60000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.map-link a:hover {
+    text-decoration: underline;
+}
+
+.map-link a:focus {
+    outline: 2px solid #e60000;
+    outline-offset: 2px;
+}
+
+.map-link a:active {
+    color: #b30000;
+}
