@@ -72,11 +72,11 @@
         <h2>Enquiry Form</h2>
 
         <!-- Enquiry form: collects the visitor's details. The novalidate attribute lets our own JavaScript show the error messages. -->
-        <form id="enquiry-form" name="enquiry" method="POST" action="thank-you.html" data-netlify="true" novalidate>
+        <form id="enquiry-form" name="enquiry" method="POST" action="https://api.web3forms.com/submit" novalidate>
 
-            <!-- Hidden field: tells Netlify which form this is -->
-            <input type="hidden" name="form-name" value="enquiry">
-
+            <!-- Hidden fields: the Web3Forms access key and the subject line of the email you receive -->
+            <input type="hidden" name="access_key" value="9806a7ce-ab9f-4cf3-945e-8791decd75f4">
+            <input type="hidden" name="subject" value="New COLEFIT website enquiry">
             <label for="name">Full name:</label>
             <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required>
             <span class="error-message" id="name-error"></span>
