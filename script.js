@@ -307,8 +307,11 @@ if (enquiryForm) {
         });
     });
 
-    // When the form is submitted, check every field and stop the send if any are invalid
+        // When the form is submitted, check every field and only send it if all are valid
     enquiryForm.addEventListener("submit", function (event) {
+        // Stop the normal page reload, because we send the form in the background instead
+        event.preventDefault();
+
         var allValid = true;
         var firstInvalidField = null;
 
@@ -322,11 +325,32 @@ if (enquiryForm) {
         });
 
         if (!allValid) {
-            event.preventDefault();
             formMessage.textContent = "Please fix the errors above and try again.";
             firstInvalidField.focus();
-        } else {
-            formMessage.textContent = "";
+            return;
         }
+
+        formMessage.textContent = "Sending your enquiry...";
+        var submitButton = enquiryForm.querySelector('input[type="submit"]');
+        submitButton.disabled = true;
+
+        // Send the form data to Web3Forms, which emails it to the COLEFIT inbox
+        fetch(enquiryForm.action, {
+            method: "POST",
+            body: new FormData(enquiryForm),
+            headers: { "Accept": "application/json" }
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            if (data.success) {
+                window.location.href = "thank-you.html";
+            } else {
+                formMessage.textContent = "Sorry, your enquiry could not be sent. Please try again later.";
+                submitButton.disabled = false;
+            }
+        }).catch(function () {
+            formMessage.textContent = "Sorry, there was a connection problem. Please check your internet and try again.";
+            submitButton.disabled = false;
+        });
     });
 }
