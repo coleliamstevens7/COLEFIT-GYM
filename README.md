@@ -69,6 +69,20 @@ Mozilla Developer Network (MDN). (2025). Using Media Queries. Available at: http
 
 Mozilla Developer Network (MDN). (2025). Pseudo-classes. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes (Accessed: 13 September 2026).
 
+Mozilla Developer Network (MDN). (2026). JavaScript Guide. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide (Accessed: 31 October 2026).
+
+Mozilla Developer Network (MDN). (2026). Intl.DateTimeFormat. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat (Accessed: 31 October 2026).
+
+Mozilla Developer Network (MDN). (2026). Client-side form validation. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation (Accessed: 31 October 2026).
+
+Mozilla Developer Network (MDN). (2026). The Inline Frame element. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe (Accessed: 31 October 2026).
+
+Mozilla Developer Network (MDN). (2026). Fetch API. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API (Accessed: 31 October 2026).
+
+Web3Forms. (2026). Web3Forms: Free contact form API. Available at: https://web3forms.com/ (Accessed: 31 October 2026).
+
+Netlify. (2026). Netlify Docs. Available at: https://docs.netlify.com/ (Accessed: 31 October 2026).
+
 ## Live Website
 - **Live site (Netlify):** https://colefit-gym-cole.netlify.app/
 - **GitHub repository:** https://github.com/coleliamstevens7/COLEFIT-GYM
