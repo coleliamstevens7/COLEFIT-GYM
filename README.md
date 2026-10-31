@@ -70,7 +70,7 @@ Mozilla Developer Network (MDN). (2025). Using Media Queries. Available at: http
 Mozilla Developer Network (MDN). (2025). Pseudo-classes. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes (Accessed: 13 September 2026).
 
 ## Live Website
-- **Live site (Netlify):** https://YOUR-NETLIFY-LINK
+- **Live site (Netlify):** https://colefit-gym-cole.netlify.app/
 - **GitHub repository:** https://github.com/coleliamstevens7/COLEFIT-GYM
 
 ### [Date: 30–31 October 2026] – Part 3: Enhancing Functionality and SEO
